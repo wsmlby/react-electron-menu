@@ -10,6 +10,8 @@ class WindowMenu extends Menu {
 
         this.onFocus = this.onFocus.bind(this);
         this.onBlur = this.onBlur.bind(this);
+        const { electron } = this.context;
+        this.isMac = (electron.remote.require('os').platform() == 'darwin');
     }
 
     componentDidMount() {
@@ -66,8 +68,13 @@ class WindowMenu extends Menu {
     onFocus() {
         const { electron } = this.context;
         const menu = this.getMenu();
-
-        electron.remote.Menu.setApplicationMenu(menu);
+        if(this.isMac) {
+            electron.remote.Menu.setApplicationMenu(menu);
+        } else {
+            const win = electron.remote.getCurrentWindow();
+            win.setMenu(menu);
+        }
+        
     }
 
     /**
@@ -77,7 +84,7 @@ class WindowMenu extends Menu {
         const { electron } = this.context;
         const currentMenu = electron.remote.Menu.getApplicationMenu();
 
-        if (currentMenu == this.menu) {
+        if (currentMenu == this.menu && this.isMac) {
             electron.remote.Menu.setApplicationMenu(null);
         }
     }
