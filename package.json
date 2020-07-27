@@ -1,10 +1,10 @@
 {
-  "name": "react-electron-menu",
-  "version": "0.3.0",
+  "name": "react-electron-menu-stable",
+  "version": "0.3.1",
   "main": "lib/index.js",
-  "author": "Samy Pesse <samypesse@gmailk.com>",
+  "author": "wsmlby@gmail.com",
   "description": "React API to create menu for electron",
-  "bugs": "https://github.com/SamyPesse/react-electron-menu/issues",
+  "bugs": "https://github.com/wsmlby/react-electron-menu/issues",
   "license": "Apache-2.0",
   "dependencies": {
     "react": "^15.4.2",
@@ -26,6 +26,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/SamyPesse/react-electron-menu.git"
+    "url": "https://github.com/wsmlby/react-electron-menu.git"
   }
 }
